@@ -1,5 +1,5 @@
-// const setData = require("../data/setData");
-// const themeData = require("../data/themeData");
+const setData = require("../data/setData");
+const themeData = require("../data/themeData");
 require('dotenv').config();
 const Sequelize = require('sequelize');
 
@@ -58,24 +58,24 @@ const sequelize = new Sequelize(
     
 
 
-    // sequelize
-    // .sync()
-    // .then(async () => {
-    //     try {
-    //         await Theme.bulkCreate(themeData);
-    //         await Set.bulkCreate(setData);
-    //         console.log("-----");
-    //         console.log("data inserted successfully");
-    //     } catch (err) {
-    //         console.log("-----");
-    //         console.log(err.message);
-    //         // If foreign key errors occur, review themeData and setData to ensure consistency
-    //     }
-    //     process.exit();
-    // })
-    // .catch((err) => {
-    //     console.log('Unable to connect to the database:', err);
-    // });
+    sequelize
+    .sync()
+    .then(async () => {
+        try {
+            await Theme.bulkCreate(themeData);
+            await Set.bulkCreate(setData);
+            console.log("-----");
+            console.log("data inserted successfully");
+        } catch (err) {
+            console.log("-----");
+            console.log(err.message);
+            // If foreign key errors occur, review themeData and setData to ensure consistency
+        }
+        process.exit();
+    })
+    .catch((err) => {
+        console.log('Unable to connect to the database:', err);
+    });
 
 
 
