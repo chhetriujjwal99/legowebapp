@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <a href="/" class="text-2xl font-bold">Lego Collection</a>
+            <div class="flex space-x-4">
+                <a href="/about" class="hover:underline">About</a>
+                <div class="dropdown relative">
+                    <summary class="cursor-pointer">Theme</summary>
+                    <ul class="dropdown-content absolute hidden bg-gray-700 mt-2 p-2 space-y-2">
+                        <li><a href="/lego/sets?theme=technic" class="hover:underline">Technic</a></li>
+                        <li><a href="/lego/sets?theme=star-wars" class="hover:underline">Star Wars</a></li>
+                        <li><a href="/lego/sets?theme=city" class="hover:underline">City</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+    <!-- <%- include('partials/navbar') %> -->
+    <%- include('partials/navbar', { page: '/' }) %>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero container mx-auto mt-10">
+        <div class="text-center bg-gray-200 p-10 rounded-lg">
+            <h1 class="text-4xl font-bold">Welcome to the Lego Collection</h1>
+            <p class="mt-4 text-lg">Explore our wide range of Lego sets and themes.</p>
+            <a href="/lego/sets" class="btn btn-primary mt-6">Browse Sets</a>
+        </div>
+    </section>
+
+    <!-- Lego Set Grid -->
+    <section class="container mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="card bg-white shadow-md rounded-lg p-6">
+            <img src="https://cdn.rebrickable.com/media/sets/71002-4.jpg" alt="Lego Set 1" class="w-full h-64 object-cover rounded-lg">
+            <h2 class="text-xl font-bold mt-4">Lego Set 1</h2>
+            <p class="mt-2">A brief description of Lego Set 1. It's part of the Star Wars theme.</p>
+            <a href="/lego/sets/71002-4" class="btn btn-secondary mt-4">View Set</a>
+        </div>
+        <!-- Card 2 -->
+        <div class="card bg-white shadow-md rounded-lg p-6">
+            <img src="https://cdn.rebrickable.com/media/sets/71002-5.jpg" alt="Lego Set 2" class="w-full h-64 object-cover rounded-lg">
+            <h2 class="text-xl font-bold mt-4">Lego Set 2</h2>
+            <p class="mt-2">A brief description of Lego Set 2. It's part of the Technic theme.</p>
+            <a href="/lego/sets/71002-5" class="btn btn-secondary mt-4">View Set</a>
+        </div>
+        <!-- Card 3 -->
+        <div class="card bg-white shadow-md rounded-lg p-6">
+            <img src="https://cdn.rebrickable.com/media/sets/71002-5.jpg" alt="Lego Set 3" class="w-full h-64 object-cover rounded-lg">
+            <h2 class="text-xl font-bold mt-4">Lego Set 3</h2>
+            <p class="mt-2">A brief description of Lego Set 3. It's part of the City theme.</p>
+            <a href="/lego/sets/71002-6" class="btn btn-secondary mt-4">View Set</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Lego Collection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.addEventListener('click', () => {
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link href="/css/main.css" rel="stylesheet">
+
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+    
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    
+        img {
+            width: 60px; /* Adjust the size as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+    
+        .btn {
+            display: inline-block;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            background-color: #007BFF; /* Bootstrap primary color */
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    
+        .btn:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
+        
+    </style>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <a href="/" class="text-2xl font-bold">Lego Collection</a>
+            <div class="flex space-x-4">
+                <a href="/about" class="hover:underline">About</a>
+                <div class="dropdown relative">
+                    <summary class="cursor-pointer">Theme</summary>
+                    <ul class="dropdown-content absolute hidden bg-gray-700 mt-2 p-2 space-y-2">
+                        <li><a href="/lego/sets?theme=technic" class="hover:underline">Technic</a></li>
+                        <li><a href="/lego/sets?theme=star-wars" class="hover:underline">Star Wars</a></li>
+                        <li><a href="/lego/sets?theme=city" class="hover:underline">City</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+
+    <!-- <%- include('partials/navbar', { page: '' }) %> -->
+    <%- include('partials/navbar', { page: '/lego/sets' }) %>
+
+
+
+    <!-- Hero Section for 404 -->
+    <section class="hero">
+        <h1 class="text-3xl font-bold">Lego Collection</h1>
+        <div class="filter-links">
+            <a href="/lego/sets?theme=technic" class="btn">Technic</a>
+            <a href="/lego/sets?theme=classic-town" class="btn">Classic Town</a>
+            <a href="/lego/sets?theme=star-wars" class="btn">Star Wars</a>
+          
+        </div>
+    </section>
+    
+
+
+
+    <table class="table-auto w-full border">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Theme</th>
+                <th>Year</th>
+                <th>Parts</th>
+                <th>Details</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% sets.forEach(set => { %>
+                <tr>
+                    <td><img src="<%= set.img_url %>" alt="<%= set.name %>" class="avatar" /></td>
+                    <td><%= set.name %></td>
+                    <td>
+                        <a href="/lego/sets?theme=<%= set.theme_id %>" class="btn btn-primary">
+                            <%= set.theme_id %>
+                        </a>
+                    </td>
+                    <td><%= set.year %></td>
+                    <td><%= set.num_parts %></td>
+                    <td>
+                        <a href="/lego/sets/<%= set.set_num %>" class="btn btn-secondary">
+                            Details
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/lego/editSet/<%= set.set_num %>" class="btn btn-success">Edit</a>
+
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/lego/deleteSet/<%= set.set_num %>" class="btn btn-error">Delete Set</a>
+
+
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Lego Collection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.addEventListener('click', () => {
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

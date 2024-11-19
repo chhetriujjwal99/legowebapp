@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <a href="/" class="text-2xl font-bold">Lego Collection</a>
+            <div class="flex space-x-4">
+                <a href="/about" class="hover:underline">About</a>
+                <div class="dropdown relative">
+                    <summary class="cursor-pointer">Theme</summary>
+                    <ul class="dropdown-content absolute hidden bg-gray-700 mt-2 p-2 space-y-2">
+                        <li><a href="/lego/sets?theme=technic" class="hover:underline">Technic</a></li>
+                        <li><a href="/lego/sets?theme=star-wars" class="hover:underline">Star Wars</a></li>
+                        <li><a href="/lego/sets?theme=city" class="hover:underline">City</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+
+    <%- include('partials/navbar', { page: '' }) %>
+
+
+    <!-- Hero Section for 404 -->
+    <section class="hero container mx-auto mt-10">
+        <div class="text-center bg-gray-200 p-10 rounded-lg">
+            <h1 class="text-6xl font-bold text-red-600">404</h1>
+            <p class="mt-4 text-lg">Oops! The page you're looking for doesn't exist.</p>
+            <a href="/" class="btn btn-primary mt-6">Return to Home</a>
+        </div>
+    </section>
+
+
+    <div class="error-container">
+        <h1>404 - Not Found</h1>
+        <p><%= message %></p>
+        <a href="/lego/sets">Go to Collection</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Lego Collection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.addEventListener('click', () => {
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
