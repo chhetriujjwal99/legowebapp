@@ -12,7 +12,7 @@
 ********************************************************************************/
 
 const express = require("express");
-const legoData = require("./modules/legoSets");
+const {initialize} = require("./modules/legoSets");
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -33,7 +33,7 @@ app.set("view engine", "ejs");
 
 
 
-legoData.initialize().then(() => {
+initialize().then(() => {
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
     });
