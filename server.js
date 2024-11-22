@@ -25,7 +25,7 @@ const Sequelize = require('sequelize');
 
 app.use(express.static(__dirname + '/public'));
 
-// app.set('views', __dirname + '/views');
+
 
 
 app.set("views", __dirname + "/views");
@@ -40,15 +40,7 @@ legoData.initialize().then(() => {
 }).catch((error) => {
     console.error("Failed to initialize lego data: ", error);
 });
-// console.log('Lego Data:', legoData.getAllSets());
 
-// Convert legoSets to an array of values
-// const legoSets = JSON.parse(JSON.stringify(legoData)); // Convert JSON to array format
-
-
-// app.get("*", (req, res) => {
-//   res.status(404).render("404", { message: "The page you are looking for does not exist." });
-// });
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -62,12 +54,7 @@ app.get('/', (req, res) => {
     res.render("about",{ page: '/about' });
   });
   
-//   app.get('/lego/sets', async(req, res) => {
-//    // Should output `true` if it's an array
-   
-//     await res.render('sets', { sets: legoData.getAllSets() });
-   
-// });
+
 app.get('/lego/sets', async (req, res) => {
   try {
     const theme = req.query.theme;
@@ -84,15 +71,7 @@ app.get('/lego/sets', async (req, res) => {
   }
 });
 
-// app.get('/lego/addSet', (req, res) => {
-//   Theme.findAll()
-//       .then((themes) => {
-//           res.render('addSet', { themes });
-//       })
-//       .catch((err) => {
-//           res.status(500).send('Error fetching themes: ' + err);
-//       });
-// });
+
 
 app.get('/lego/addSet', async (req, res) => {
   try {
@@ -143,21 +122,6 @@ app.get('/lego/deleteSet/:num', async (req, res) => {
 // app.post('/lego/addSet', (req, res) => {
 //   const { name, year, num_parts, img_url, theme_id, set_num } = req.body;
 
-//   Set.create({
-//       name,
-//       year,
-//       num_parts,
-//       img_url,
-//       theme_id,
-//       set_num,
-//   })
-//       .then(() => {
-//           res.redirect('/lego'); // Redirect to the main LEGO page or wherever appropriate
-//       })
-//       .catch((err) => {
-//           res.status(500).send('Error adding set: ' + err);
-//       });
-// });
 
 app.post('/lego/addSet', async (req, res) => {
   try {
@@ -169,45 +133,11 @@ app.post('/lego/addSet', async (req, res) => {
 });
 
 
-//   app.get('/lego/sets', async(req, res) => {
-//     const theme = req.query.theme;
-// const data = await legoData.getAllSets();
-// console.log(data);
-    
-//     try {
-//         if (theme) {
-//             const filteredSets = data.filter(set => set.theme.toLowerCase() === theme.toLowerCase());
-//             if (filteredSets.length > 0) {
-//                 res.json(filteredSets);
-//             } else {
-//                 res.status(404).send(`No Lego sets found for theme: ${theme}`);
-//             }
-//         } else {
-//             res.json(data);
-//         }
-//     } catch (error) {
-//         res.status(404).send('Error fetching Lego sets');
-//     }
-   
-// });
 
 
 
-// app.get('/lego/sets/:set_num', async(req, res) => {
-//     const setNum = req.params.set_num;
-//     const data = await legoData.getAllSets(); 
 
-//     try {
-//         const set = data.find(s => s.set_num === setNum);
-//         if (set) {
-//             res.json(set);
-//         } else {
-//             res.status(404).send(`Lego set with number ${setNum} not found.`);
-//         }
-//     } catch (error) {
-//         res.status(404).send('Error fetching Lego set');
-//     }
-// });
+
 
 
 
@@ -253,35 +183,6 @@ app.get("/lego/sets/:set_num", async (req, res) => {
 
   
 
-// app.get("/", (req, res) => {
-//     res.send("Assignment 2: Bibek Poudel - 157056227");
-// });
-
-// app.get("/lego/sets", (req, res) => {
-//     legoData.getAllSets().then((sets) => {
-//         res.json(sets);
-//     }).catch((error) => {
-//         res.status(500).send(error);
-//     });
-// });
-
-
-// app.get("/lego/sets/num-demo", (req, res) => {
-//     legoData.getSetByNum("71002-5").then((set) => { 
-//         res.json(set);
-//     }).catch((error) => {
-//         res.status(500).send(error);
-//     });
-// });
-
-
-// app.get("/lego/sets/theme-demo", (req, res) => {
-//     legoData.getSetsByTheme("Holiday").then((sets) => { 
-//         res.json(sets);
-//     }).catch((error) => {
-//         res.status(500).send(error);
-//     });
-// });
 
 
 app.get("/files", (req, res) => {
