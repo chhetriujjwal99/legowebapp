@@ -102,7 +102,7 @@ const sequelize = new Sequelize(
 
 
 
-function initialize() {
+module.exports.initialize=()=> {
     return sequelize.sync()
         .then(() => {
             console.log("Database synced successfully.");
@@ -124,7 +124,7 @@ function initialize() {
 // }
 
 
-function getAllSets() {
+module.exports.getAllSets=()=> {
     return Set.findAll({ include: [Theme] })
         .then((sets) => {
             return Promise.resolve(sets);
@@ -176,7 +176,7 @@ function getAllSets() {
 //         }
 //     });
 // }
-function getSetsByTheme(theme) {
+module.exports.getSetsByTheme=(theme)=> {
     return Set.findAll({
         include: [Theme],
         where: {
@@ -203,7 +203,7 @@ function getSetsByTheme(theme) {
 
 
 
-module.exports = { initialize, getAllSets, getSetsByTheme,sequelize, Theme, Set  };
+// module.exports = { initialize, getAllSets, getSetsByTheme,sequelize, Theme, Set  };
 
 module.exports.getAllThemes = () => {
     return Theme.findAll()
