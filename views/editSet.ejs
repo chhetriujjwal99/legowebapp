@@ -8,29 +8,37 @@
     <style>
         /* General Styles for Forms */
 form {
-  max-width: 600px;
+  max-width: 700px;
   margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+  background: linear-gradient(145deg, #ffffff, #f3f3f3);
+  border-radius: 12px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+form:hover {
+  transform: scale(1.02);
 }
 
 /* Form Header */
 form h1 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  color: #333;
+  color: #222;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* Form Labels */
 form label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #555;
+  font-weight: 600;
+  color: #444;
+  font-size: 1rem;
 }
 
 /* Form Inputs */
@@ -38,70 +46,84 @@ form input,
 form select,
 form textarea {
   width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.9rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
   font-size: 1rem;
   background-color: #fff;
   color: #333;
   box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+  outline: none;
 }
 
 /* Placeholder styling */
 form input::placeholder,
 form textarea::placeholder {
-  color: #999;
+  color: #bbb;
   font-style: italic;
 }
 
 /* Readonly Inputs */
 form input[readonly] {
-  background-color: #e9ecef;
+  background-color: #f1f3f5;
   cursor: not-allowed;
+  border-color: #e0e0e0;
 }
 
 /* Form Buttons */
 form button {
   display: inline-block;
   width: 48%;
-  padding: 0.8rem;
+  padding: 0.9rem;
   margin: 0.5rem 1%;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   text-align: center;
   color: #fff;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+form button:hover {
+  transform: translateY(-3px);
 }
 
 /* Primary Button */
 form button[type="submit"] {
-  background-color: #007bff;
+  background: linear-gradient(145deg, #007bff, #0056b3);
 }
 
 form button[type="submit"]:hover {
-  background-color: #0056b3;
+  background: linear-gradient(145deg, #0056b3, #003f7f);
 }
 
 /* Danger Button */
 form button.btn-error {
-  background-color: #dc3545;
+  background: linear-gradient(145deg, #dc3545, #a71d2a);
 }
 
 form button.btn-error:hover {
-  background-color: #a71d2a;
+  background: linear-gradient(145deg, #a71d2a, #720f1b);
 }
 
 /* Success Button */
 form button.btn-success {
-  background-color: #28a745;
+  background: linear-gradient(145deg, #28a745, #1c7430);
 }
 
 form button.btn-success:hover {
-  background-color: #1c7430;
+  background: linear-gradient(145deg, #1c7430, #155d22);
 }
 
 /* Error Message Styling */
@@ -109,12 +131,13 @@ form button.btn-success:hover {
   color: #dc3545;
   font-weight: bold;
   margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   form {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   form button {
@@ -122,6 +145,14 @@ form button.btn-success:hover {
     margin: 0.5rem 0;
   }
 }
+
+/* Additional Enhancements for Small Inputs */
+form input[type="number"],
+form input[type="url"],
+form input[type="text"] {
+  font-family: 'Roboto Mono', monospace;
+}
+
 
     </style>
 </head>
