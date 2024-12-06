@@ -130,54 +130,52 @@ form button.btn-success:hover {
 
     <h1>Edit Set: <%= set.name %></h1>
 
- <form action="/lego/editSet" method="POST" class="p-6 border rounded bg-gray-50">
+<form action="/lego/editSet" method="POST" class="p-6 border rounded bg-gray-50">
     <input type="hidden" name="set_num" value="<%= set.set_num %>">
     
-    <div class="relative mb-4">
-        <input type="text" id="name" name="name" value="<%= set.name %>" class="w-full border p-2 rounded peer" required>
-        <label for="name" class="absolute left-2 top-0 text-gray-500 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm peer-focus:text-blue-600">
-            Name
-        </label>
+    <div class="flex items-center mb-4">
+        <label for="name" class="w-1/4 font-medium">Name:</label>
+        <input type="text" id="name" name="name" value="<%= set.name %>" class="w-3/4 border p-2 rounded" required>
     </div>
     
-    <div class="relative mb-4">
-        <input type="number" id="year" name="year" value="<%= set.year %>" class="w-full border p-2 rounded peer" required>
-        <label for="year" class="absolute left-2 top-0 text-gray-500 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm peer-focus:text-blue-600">
-            Year
-        </label>
+    <div class="flex items-center mb-4">
+        <label for="year" class="w-1/4 font-medium">Year:</label>
+        <input type="number" id="year" name="year" value="<%= set.year %>" class="w-3/4 border p-2 rounded" required>
     </div>
     
-    <div class="relative mb-4">
-        <input type="number" id="num_parts" name="num_parts" value="<%= set.num_parts %>" class="w-full border p-2 rounded peer" required>
-        <label for="num_parts" class="absolute left-2 top-0 text-gray-500 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm peer-focus:text-blue-600">
-            Number of Parts
-        </label>
+    <div class="flex items-center mb-4">
+        <label for="num_parts" class="w-1/4 font-medium">Number of Parts:</label>
+        <input type="number" id="num_parts" name="num_parts" value="<%= set.num_parts %>" class="w-3/4 border p-2 rounded" required>
     </div>
     
-    <div class="relative mb-4">
-        <input type="url" id="img_url" name="img_url" value="<%= set.img_url %>" class="w-full border p-2 rounded peer" required>
-        <label for="img_url" class="absolute left-2 top-0 text-gray-500 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm peer-focus:text-blue-600">
-            Image URL
-        </label>
+    <div class="flex items-center mb-4">
+        <label for="img_url" class="w-1/4 font-medium">Image URL:</label>
+        <input type="url" id="img_url" name="img_url" value="<%= set.img_url %>" class="w-3/4 border p-2 rounded" required>
     </div>
     
-    <div class="relative mb-4">
-        <select id="theme_id" name="theme_id" class="w-full border p-2 rounded peer" required>
+    <div class="flex items-center mb-4">
+        <label for="theme_id" class="w-1/4 font-medium">Theme:</label>
+        <select id="theme_id" name="theme_id" class="w-3/4 border p-2 rounded" required>
             <% themes.forEach(theme => { %>
                 <option value="<%= theme.id %>" <%= (set.theme_id == theme.id) ? "selected" : "" %>>
                     <%= theme.name %>
                 </option>
             <% }) %>
         </select>
-        <label for="theme_id" class="absolute left-2 top-0 text-gray-500 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm peer-focus:text-blue-600">
-            Theme
-        </label>
     </div>
     
-    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
-        Update Set
-    </button>
+    <div class="flex items-center mb-4">
+        <label for="set_num" class="w-1/4 font-medium">Set Number:</label>
+        <input type="text" id="set_num" name="set_num" value="<%= set.set_num %>" class="w-3/4 border p-2 rounded cursor-not-allowed" readonly>
+    </div>
+    
+    <div class="flex justify-end">
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Update Set
+        </button>
+    </div>
 </form>
+
 
 
 
