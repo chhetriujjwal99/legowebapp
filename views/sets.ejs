@@ -94,44 +94,45 @@
 
 
 
-   <table class="table-auto border-collapse w-full border">
-    <thead class="bg-gray-200">
+   <table class="table-auto border w-full">
+    <thead class="bg-blue-500 text-white">
         <tr>
-            <th class="p-2 border">Image</th>
-            <th class="p-2 border">Name</th>
-            <th class="p-2 border">Theme</th>
-            <th class="p-2 border">Year</th>
-            <th class="p-2 border">Parts</th>
-            <th class="p-2 border">Details</th>
-            <th class="p-2 border">Edit</th>
-            <th class="p-2 border">Delete</th>
+            <th class="p-3">Image</th>
+            <th class="p-3">Name</th>
+            <th class="p-3">Theme</th>
+            <th class="p-3">Year</th>
+            <th class="p-3">Parts</th>
+            <th class="p-3">Details</th>
+            <th class="p-3">Edit</th>
+            <th class="p-3">Delete</th>
         </tr>
     </thead>
     <tbody>
-        <% sets.forEach(set => { %>
-            <tr class="text-center">
-                <td class="p-2 border"><img src="<%= set.img_url %>" alt="<%= set.name %>" class="w-16 h-16 object-cover" /></td>
-                <td class="p-2 border"><%= set.name %></td>
-                <td class="p-2 border">
-                    <a href="/lego/sets?theme=<%= set.theme_id %>" class="text-blue-600 underline">
+        <% sets.forEach((set, index) => { %>
+            <tr class="<%= index % 2 === 0 ? 'bg-gray-100' : 'bg-white' %>">
+                <td class="p-3"><img src="<%= set.img_url %>" alt="<%= set.name %>" class="w-12 h-12" /></td>
+                <td class="p-3"><%= set.name %></td>
+                <td class="p-3">
+                    <a href="/lego/sets?theme=<%= set.theme_id %>" class="hover:underline text-blue-600">
                         <%= set.theme_id %>
                     </a>
                 </td>
-                <td class="p-2 border"><%= set.year %></td>
-                <td class="p-2 border"><%= set.num_parts %></td>
-                <td class="p-2 border">
-                    <a href="/lego/sets/<%= set.set_num %>" class="text-blue-600">Details</a>
+                <td class="p-3"><%= set.year %></td>
+                <td class="p-3"><%= set.num_parts %></td>
+                <td class="p-3">
+                    <a href="/lego/sets/<%= set.set_num %>" class="hover:underline text-blue-600">Details</a>
                 </td>
-                <td class="p-2 border">
-                    <a href="/lego/editSet/<%= set.set_num %>" class="text-green-600">Edit</a>
+                <td class="p-3">
+                    <a href="/lego/editSet/<%= set.set_num %>" class="hover:underline text-green-600">Edit</a>
                 </td>
-                <td class="p-2 border">
-                    <a href="/lego/deleteSet/<%= set.set_num %>" class="text-red-600">Delete</a>
+                <td class="p-3">
+                    <a href="/lego/deleteSet/<%= set.set_num %>" class="hover:underline text-red-600">Delete</a>
                 </td>
             </tr>
         <% }) %>
     </tbody>
 </table>
+
 
     
     
