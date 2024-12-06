@@ -94,51 +94,45 @@
 
 
 
-    <table class="table-auto w-full border">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Theme</th>
-                <th>Year</th>
-                <th>Parts</th>
-                <th>Details</th>
-                <th>Edit</th>
-                <th>Delete</th>
+   <table class="table-auto border-collapse w-full border">
+    <thead class="bg-gray-200">
+        <tr>
+            <th class="p-2 border">Image</th>
+            <th class="p-2 border">Name</th>
+            <th class="p-2 border">Theme</th>
+            <th class="p-2 border">Year</th>
+            <th class="p-2 border">Parts</th>
+            <th class="p-2 border">Details</th>
+            <th class="p-2 border">Edit</th>
+            <th class="p-2 border">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% sets.forEach(set => { %>
+            <tr class="text-center">
+                <td class="p-2 border"><img src="<%= set.img_url %>" alt="<%= set.name %>" class="w-16 h-16 object-cover" /></td>
+                <td class="p-2 border"><%= set.name %></td>
+                <td class="p-2 border">
+                    <a href="/lego/sets?theme=<%= set.theme_id %>" class="text-blue-600 underline">
+                        <%= set.theme_id %>
+                    </a>
+                </td>
+                <td class="p-2 border"><%= set.year %></td>
+                <td class="p-2 border"><%= set.num_parts %></td>
+                <td class="p-2 border">
+                    <a href="/lego/sets/<%= set.set_num %>" class="text-blue-600">Details</a>
+                </td>
+                <td class="p-2 border">
+                    <a href="/lego/editSet/<%= set.set_num %>" class="text-green-600">Edit</a>
+                </td>
+                <td class="p-2 border">
+                    <a href="/lego/deleteSet/<%= set.set_num %>" class="text-red-600">Delete</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <% sets.forEach(set => { %>
-                <tr>
-                    <td><img src="<%= set.img_url %>" alt="<%= set.name %>" class="avatar" /></td>
-                    <td><%= set.name %></td>
-                    <td>
-                        <a href="/lego/sets?theme=<%= set.theme_id %>" class="btn btn-primary">
-                            <%= set.theme_id %>
-                        </a>
-                    </td>
-                    <td><%= set.year %></td>
-                    <td><%= set.num_parts %></td>
-                    <td>
-                        <a href="/lego/sets/<%= set.set_num %>" class="btn btn-secondary">
-                            Details
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/lego/editSet/<%= set.set_num %>" class="btn btn-success">Edit</a>
+        <% }) %>
+    </tbody>
+</table>
 
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/lego/deleteSet/<%= set.set_num %>" class="btn btn-error">Delete Set</a>
-
-
-                        </a>
-                    </td>
-                </tr>
-            <% }) %>
-        </tbody>
-    </table>
     
     
     
